@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>编辑企业 · 调研档案室</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">研</span>调研档案室<em>RESEARCH DESK</em>
+    </a>
+    <nav class="topnav">
+      <a href="index.html">生成调研</a>
+      <a href="library.html" class="active">企业信息库</a>
+    </nav>
+  </header>
+
+  <div class="edit-top">
+    <div>
+      <a class="back-link" href="library.html">← 返回企业库</a>
+      <h1 class="edit-h1" id="editTitle">编辑企业档案</h1>
+      <p class="sub">保存后卡片与 Markdown 同步更新；未填写的字段将标注为待确认。Markdown 按「公司调研（简版·偏海外）」结构生成。</p>
+    </div>
+    <div class="counter">最后更新 <b id="updatedAt">—</b></div>
+  </div>
+
+  <div class="edit-layout">
+    <form class="edit-main" id="editForm">
+
+      <section class="edit-section">
+        <h2 class="sec-title">基本信息</h2>
+        <div class="edit-grid">
+          <div class="field">
+            <label for="fName">企业名称 *</label>
+            <input id="fName" required placeholder="宁德时代">
+          </div>
+          <div class="field">
+            <label for="fEn">英文名 / 简称</label>
+            <input id="fEn" placeholder="CATL">
+          </div>
+          <div class="field">
+            <label for="fIndustry">所属行业 *</label>
+            <input id="fIndustry" required list="industryOptions" placeholder="动力电池">
+            <datalist id="industryOptions"></datalist>
+          </div>
+          <div class="field">
+            <label for="fRegion">总部所在地</label>
+            <input id="fRegion" placeholder="中国·福建宁德">
+          </div>
+          <div class="field">
+            <label for="fFounded">成立时间</label>
+            <input id="fFounded" placeholder="2011 年 12 月">
+          </div>
+          <div class="field">
+            <label for="fListing">上市情况</label>
+            <input id="fListing" placeholder="深交所 300750 / 港交所 3750">
+          </div>
+        </div>
+      </section>
+
+      <section class="edit-section">
+        <h2 class="sec-title">市场定位</h2>
+        <div class="pos-picks" id="posPicks"></div>
+      </section>
+
+      <section class="edit-section">
+        <h2 class="sec-title">附件</h2>
+        <label class="dropzone" id="dropzone">
+          <input type="file" id="fileInput" multiple hidden>
+          点击选择，或把文件拖到这里上传<br>
+          <span style="font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em;">
+            单个文件 ≤ 2 MB · 本企业附件合计 ≤ 5 MB · 仅存于本地浏览器
+          </span>
+        </label>
+        <div class="attach-list" id="attachList"></div>
+      </section>
+
+      <div class="edit-foot">
+        <button class="btn danger" type="button" id="deleteBtn">删除企业</button>
+        <div class="right">
+          <button class="btn" type="button" id="dlBtn">下载 Markdown</button>
+          <button class="btn" type="button" id="cancelBtn">取消</button>
+          <button class="btn solid" type="submit">保存修改</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<script src="assets/app.js"></script>
+<script src="assets/edit.js"></script>
+</body>
+</html>

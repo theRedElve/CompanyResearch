@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>企业信息库 · 调研档案室</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">研</span>调研档案室<em>RESEARCH DESK</em>
+    </a>
+    <nav class="topnav">
+      <a href="index.html">生成调研</a>
+      <a href="library.html" class="active">企业信息库</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="lib-head">
+      <div>
+        <p class="eyebrow">Library · 企业档案</p>
+        <h1>企业信息库</h1>
+        <p class="sub">以企业为单元存档。筛选按行业与市场定位叠加生效，悬停卡片可下载 Markdown 或删除。</p>
+      </div>
+      <div class="counter"><b id="count">0</b> / <span id="total">0</span> 家</div>
+    </div>
+
+    <div class="filters">
+      <div class="filter-group">
+        <span class="filter-label">行业</span>
+        <div id="industryFilters" class="filter-group"></div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">市场定位</span>
+        <div id="positionFilters" class="filter-group"></div>
+      </div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </main>
+
+</div>
+
+<!-- 添加企业 -->
+<div class="overlay" id="overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <h3 id="modalTitle">添加企业</h3>
+      <button class="close-x" type="button" id="closeModal" aria-label="关闭">✕</button>
+    </div>
+    <form id="companyForm">
+      <div class="modal-body">
+        <div class="field-row">
+          <div class="field">
+            <label for="fName">企业名称 *</label>
+            <input id="fName" name="name" required placeholder="宁德时代">
+          </div>
+          <div class="field">
+            <label for="fEn">英文名 / 简称</label>
+            <input id="fEn" name="en" placeholder="CATL">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="fIndustry">所属行业 *</label>
+            <input id="fIndustry" name="industry" required list="industryOptions" placeholder="动力电池">
+            <datalist id="industryOptions"></datalist>
+          </div>
+          <div class="field">
+            <label for="fRegion">总部所在地</label>
+            <input id="fRegion" name="region" placeholder="中国·福建宁德">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>市场定位（可多选）</label>
+          <div class="pos-picks" id="posPicks"></div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="fFounded">成立时间</label>
+            <input id="fFounded" name="founded" placeholder="2011 年 12 月">
+          </div>
+          <div class="field">
+            <label for="fListing">上市情况</label>
+            <input id="fListing" name="listing" placeholder="深交所 300750">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="fRevenue">最新营收</label>
+            <input id="fRevenue" name="revenue" placeholder="4,237 亿元">
+          </div>
+          <div class="field">
+            <label for="fEmployees">员工人数</label>
+            <input id="fEmployees" name="employees" placeholder="185,839 人">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="fDesc">一句话简介</label>
+          <textarea id="fDesc" name="desc" placeholder="靠什么赚钱，一句话说清"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="fBrands">主要品牌 / 产品（逗号分隔）</label>
+          <input id="fBrands" name="brands" placeholder="麒麟电池，神行超充电池">
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button class="btn" type="button" id="cancelBtn">取消</button>
+        <button class="btn solid" type="submit">保存到企业库</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="assets/app.js"></script>
+<script src="assets/library.js"></script>
+</body>
+</html>

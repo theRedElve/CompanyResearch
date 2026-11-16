@@ -1,0 +1,7 @@
+# 生成物（浏览器截图、分享包）
+.screenshots/
+.trae-html-share-packages/
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db

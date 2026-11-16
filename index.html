@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>生成调研 · 调研档案室</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">研</span>调研档案室<em>RESEARCH DESK</em>
+    </a>
+    <nav class="topnav">
+      <a href="index.html" class="active">生成调研</a>
+      <a href="library.html">企业信息库</a>
+    </nav>
+  </header>
+
+  <main class="research">
+    <p class="eyebrow">Step 01 · 输入企业名称</p>
+    <h1>把一家公司，<br>整理成一页档案。</h1>
+    <p class="lede">
+      输入企业名称，按「公司调研（陈老师版）」的结构输出业务线、历年营业额、品牌与中国区情况，
+      并生成 Markdown 供下载。未取得可核验来源的字段一律标注待确认，不做推测。
+    </p>
+
+    <form class="gen-form" id="genForm">
+      <input id="companyInput" type="text" placeholder="例如：宁德时代 / 蜜雪冰城" autocomplete="off" required>
+      <button type="submit">生成档案</button>
+    </form>
+
+    <p class="suggest">已收录示例：
+      <button class="linkish" data-name="宁德时代">宁德时代</button> ·
+      <button class="linkish" data-name="蜜雪冰城">蜜雪冰城</button> ·
+      <button class="linkish" data-name="明源云">明源云</button>
+    </p>
+
+    <section class="result" id="result" hidden>
+      <div class="result-head">
+        <div class="result-title">
+          <span id="resultName">—</span>
+          <span class="badge" id="resultBadge">—</span>
+        </div>
+        <div class="result-actions">
+          <button class="btn" id="copyBtn" type="button">复制</button>
+          <button class="btn solid" id="downloadBtn" type="button">下载 .md</button>
+        </div>
+      </div>
+      <pre class="md-view" id="mdView"></pre>
+    </section>
+
+    <section class="notes">
+      <b>关于数据来源</b><br>
+      本页为纯静态页面，不联网抓取。已收录企业直接使用「企业信息库」中的档案生成；
+      未收录企业输出结构化空白模板，所有字段标记「[待与目标公司沟通确认]」，可在编辑后使用。<br>
+      <b>推荐路径</b>：先在企业信息库添加企业 → 回到本页输入名称 → 下载 Markdown。
+    </section>
+  </main>
+
+</div>
+
+<script src="assets/app.js"></script>
+<script src="assets/research.js"></script>
+</body>
+</html>
